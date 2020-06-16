@@ -4,9 +4,9 @@
 
 ### Command Prompt
 
-Need Maven installed to use the command `mvn clean install`.
+Need [Maven](https://maven.apache.org/install.html) installed to use the command `mvn clean install`.
 
-Need Java 11 in OS environment variables.
+Need [Java 11](https://jdk.java.net/archive/) in OS environment variables.
 
 Than just execute the [bat file](desafio-backend/start-back.bat) for Windows or [sh file](desafio-backend/start-back.sh) for Mac or Linux Kernel.
 
@@ -31,3 +31,7 @@ To get more about [API](desafio-backend/README.md).
 Need to install [NodeJS](https://nodejs.org/en/download/).
 
 Than just execute the [bat file](desafio-frontend/start-front.bat) for Windows or [sh file](desafio-frontend/start-front.sh) for Mac or Linux Kernel.
+
+## Database
+
+PostgreSQL as a Service from [ElephantSQL](https://www.elephantsql.com/).
