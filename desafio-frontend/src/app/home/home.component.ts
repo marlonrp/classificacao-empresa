@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public selectedMonth: MonthModel;
   public filteredMonths: MonthModel[];
 
-  public pageSize = 1;
+  public pageSize = 10;
   public pageIndex = 0;
   public totalPages = 0;
   public sizeOptions = [10, 25, 50, 100];
