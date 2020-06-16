@@ -50,8 +50,7 @@ public class CompanyController {
 	}
 
 	@PostMapping(value = "/{id}/computeFile", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public ResponseEntity<Rate> computeFile(@PathVariable Integer id,
-			@RequestParam() Integer month,
+	public ResponseEntity<Rate> computeFile(@PathVariable Integer id, @RequestParam() Integer month,
 			@RequestParam() MultipartFile file) {
 
 		if (month < 1 || month > 12) {
@@ -67,8 +66,8 @@ public class CompanyController {
 		} else {
 			rate = new Rate(month, 50, company);
 		}
-		Map<String, Integer> map = null;
 
+		Map<String, Integer> map = null;
 		try {
 			String content = new String(file.getBytes(), StandardCharsets.UTF_8);
 			map = new ObjectMapper().readValue(content, Map.class);
@@ -83,7 +82,7 @@ public class CompanyController {
 		rate = rateService.save(rate);
 		return ResponseEntity.ok().body(rate);
 	}
-	
+
 	private Integer calculeNewScore(Double score, ComputeFile computeFile) {
 		Double newScore = score;
 
