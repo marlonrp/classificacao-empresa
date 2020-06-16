@@ -1,21 +1,11 @@
-package backend.desafio.resources.exceptions;
+package backend.desafio.controller.exceptions;
 
-import java.io.Serializable;
+public class StandardError {
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
-@JsonInclude(content = Include.NON_NULL)
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class StandardError implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
-	
 	private Integer status;
 	private String msg;
 	private Long timeStamp;
-	
+
 	public StandardError(Integer status, String msg, Long timeStamp) {
 		super();
 		this.status = status;

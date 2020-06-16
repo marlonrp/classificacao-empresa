@@ -13,7 +13,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "COMPANY")
+@Table(name = "company")
 public class Company {
 
 	public interface CompanyUpdate {
@@ -21,14 +21,11 @@ public class Company {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID", updatable = false, nullable = false)
+	@Column(name = "id", updatable = false, nullable = false)
 	@NotNull(message = "Id is mandatory", groups = CompanyUpdate.class)
 	private Integer id;
 
-	@Column(name = "NAME")
+	@Column(name = "name")
 	@NotBlank(message = "Name is mandatory")
 	private String name;
-	
-//	@OneToOne(mappedBy = "company")
-//	private Rate rate;
 }
