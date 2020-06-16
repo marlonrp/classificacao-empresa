@@ -6,7 +6,7 @@
 
 Need Maven installed to use the command `mvn clean install`;
 Need Java 11 in OS environment variables;
-Than just execute the script (bat)[desafio-backend/start-back.bat] for Windows or (sh)[desafio-backend/start-back.sh] for Mac or Linux Kernel;
+Than just execute the [bat file](https://github.com/marlonrp/desafio-classificacao-empresa/blob/front/desafio-backend/start-back.bat) for Windows or [sh file](https://github.com/marlonrp/desafio-classificacao-empresa/blob/front/desafio-backend/start-back.sh) for Mac or Linux Kernel;
 
 ### IDE
 
