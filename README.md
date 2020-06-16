@@ -31,3 +31,7 @@ To get more about [API](desafio-backend/README.md).
 Need to install [NodeJS](https://nodejs.org/en/download/).
 
 Than just execute the [bat file](desafio-frontend/start-front.bat) for Windows or [sh file](desafio-frontend/start-front.sh) for Mac or Linux Kernel.
+
+## Database
+
+PostgreSQL as a Service from [ElephantSQL](https://www.elephantsql.com/).
