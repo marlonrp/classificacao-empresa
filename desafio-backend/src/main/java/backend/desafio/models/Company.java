@@ -1,36 +1,34 @@
 package backend.desafio.models;
 
-import java.io.Serializable;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 
-@Entity
 @Data
-public class Company implements Serializable {
+@Entity
+@Table(name = "COMPANY")
+public class Company {
 
-	public interface CompanyUpdate{}
-	
-	private static final long serialVersionUID = 1L;
-		
+	public interface CompanyUpdate {
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID", updatable = false, nullable = false)
 	@NotNull(message = "Id is mandatory", groups = CompanyUpdate.class)
 	private Integer id;
 
+	@Column(name = "NAME")
 	@NotBlank(message = "Name is mandatory")
 	private String name;
-
-	@Min(value = 1, message = "Rate must be equal or greatter than 1(one)")
-	@Max(value = 100, message = "Rate must be equal or lower than 100(hundred)")
-	@NotNull(message = "Rate is mandatory")
-	private Integer rate;
+	
+//	@OneToOne(mappedBy = "company")
+//	private Rate rate;
 }

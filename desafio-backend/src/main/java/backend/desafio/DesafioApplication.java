@@ -11,7 +11,7 @@ public class DesafioApplication extends SpringBootServletInitializer {
 	public static void main(String[] args) {
 		SpringApplication.run(DesafioApplication.class, args);
 	}
-	
+
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(DesafioApplication.class);
