@@ -1,23 +1,30 @@
-import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NoPreloading, RouterModule } from "@angular/router";
 
-import { AppComponent } from "~app/app.component";
-import { RoutingModule } from "~app/app-routing.module";
-import { SharedModule } from "~shared/shared.module";
-import { ErrorPageComponent } from "~features/error-page/error-page.component";
-import { HomeComponent } from "~features/home/home.component";
-import { RegisterEntryComponent } from "~features/register-entry/register-entry.component";
+import { AppComponent } from "@app/app.component";
+import { AppRoutingModule } from "@app/app.routing";
+import { SharedModule } from "@shared/shared.module";
+import { HomeModule } from "@home/home.module";
+import { ErrorPageComponent } from "@error-page/error-page.component";
+import { FormModule } from "@form/form.module";
 
 @NgModule({
-  declarations: [AppComponent, ErrorPageComponent, HomeComponent, RegisterEntryComponent],
+  declarations: [AppComponent, ErrorPageComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RoutingModule,
-    SharedModule
+    RouterModule.forRoot([], {
+      paramsInheritanceStrategy: "always",
+      preloadingStrategy: NoPreloading,
+      useHash: true
+    }),
+    AppRoutingModule,
+    SharedModule,
+    HomeModule,
+    FormModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

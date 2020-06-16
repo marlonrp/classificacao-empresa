@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "desafio-frontend": {
+    "projeto-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,18 +17,17 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/desafio-frontend",
+            "outputPath": "dist/projeto-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
-            "assets": ["src/assets/img/system-icon.webp", "src/assets"],
+            "aot": true,
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/nova-light/theme.css",
-              "node_modules/primeng/resources/primeng.min.css",
-              "src/styles.scss"],
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -44,7 +43,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -66,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "desafio-frontend:build"
+            "browserTarget": "projeto-frontend:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "desafio-frontend:build:production"
+              "browserTarget": "projeto-frontend:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "desafio-frontend:build"
+            "browserTarget": "projeto-frontend:build"
           }
         },
         "test": {
@@ -88,7 +86,10 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss"
+            ],
             "scripts": []
           }
         },
@@ -107,16 +108,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "desafio-frontend:serve"
+            "devServerTarget": "projeto-frontend:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "desafio-frontend:serve:production"
+              "devServerTarget": "projeto-frontend:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "desafio-frontend"
+  "defaultProject": "projeto-frontend",
+  "cli": {
+    "analytics": false
+  }
 }

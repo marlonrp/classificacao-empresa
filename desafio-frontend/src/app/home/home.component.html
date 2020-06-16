@@ -1,0 +1,39 @@
+<div class="section">
+  <mat-form-field class="form-field center">
+    <mat-label>Mês</mat-label>
+    <input matInput type="text" [matAutocomplete]="month" [formControl]="monthFormControl">
+    <mat-autocomplete #month="matAutocomplete" [displayWith]="displayName">
+      <mat-option *ngFor="let month of filteredMonths" [value]="month">
+        {{month.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <div *ngIf="selectedMonth">
+    <mat-table [dataSource]="rates" class="mat-elevation-z8" *ngIf="!loading && rates.length">
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+        <mat-cell *matCellDef="let rate"> {{rate.company.name}} </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="score">
+        <mat-header-cell *matHeaderCellDef> Pontuação </mat-header-cell>
+        <mat-cell *matCellDef="let rate"> {{rate.score}} </mat-cell>
+      </ng-container>
+      
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <div *ngIf="loading" class="loading">
+      <mat-spinner class="center"></mat-spinner>
+    </div>
+    <div *ngIf="!loading && !rates.length">
+      <h2>Não há registros para o mês selecionado</h2>
+    </div>
+    <mat-paginator #paginator [length]="totalPages" [pageIndex]="pageIndex" [pageSize]="pageSize" [pageSizeOptions]="sizeOptions" [showFirstLastButtons]="true" (page)="handlePage($event)"></mat-paginator>
+  </div>
+
+  <div *ngIf="!selectedMonth">
+    <h2>Selecione um mês</h2>
+  </div>
+</div>
