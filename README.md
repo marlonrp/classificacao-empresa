@@ -4,7 +4,7 @@
 
 ### Command Prompt
 
-Need Maven installed to use the command `mvn clean install`.
+Need [Maven](https://maven.apache.org/install.html) installed to use the command `mvn clean install`.
 
 Need Java 11 in OS environment variables.
 
