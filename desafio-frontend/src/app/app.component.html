@@ -1,4 +1,10 @@
-<div class="ui-g">
-  <app-menu class="ui-g-12"></app-menu>
-  <router-outlet class="ui-g-12"></router-outlet>
+<div class="container">
+    <div class="topnav">
+        <span>Ranking de Empresas</span>
+        <a routerLink="./home" [ngClass]="{'active': isActiveRoute('/home')}">Home</a>
+        <a routerLink="./form" [ngClass]="{'active': isActiveRoute('/form')}">Registrar entrada</a>
+    </div>
+    <main class="main">
+        <router-outlet></router-outlet>
+    </main>
 </div>

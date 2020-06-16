@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +26,6 @@ import backend.desafio.services.exceptions.MissingParameterException;
 import backend.desafio.models.ComputeFile;
 import backend.desafio.models.Rate;
 
-@CrossOrigin("*")
 @RestController
 @Validated
 @RequestMapping(value = "/company", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -39,21 +37,18 @@ public class CompanyController {
 	@Autowired
 	private RateService rateService;
 
-	@CrossOrigin("http://localhost:4200")
 	@GetMapping()
 	public ResponseEntity<List<Company>> findAll() {
 		List<Company> content = companyService.findAll();
 		return ResponseEntity.ok().body(content);
 	}
 
-	@CrossOrigin("http://localhost:4200")
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Optional<Company>> findOneById(@PathVariable Integer id) {
 		Optional<Company> company = companyService.findById(id);
 		return ResponseEntity.ok().body(company);
 	}
 
-	@CrossOrigin("http://localhost:4200")
 	@PostMapping(value = "/{id}/computeFile", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ResponseEntity<Rate> computeFile(@PathVariable Integer id,
 			@RequestParam(value = "month", required = true) Integer month,

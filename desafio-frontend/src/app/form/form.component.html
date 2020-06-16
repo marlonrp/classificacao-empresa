@@ -1,0 +1,51 @@
+<div [formGroup]="formGroup" class="section">
+    <div *ngIf="!loading">
+        <mat-form-field class="form-field">
+            <mat-label>Empresa</mat-label>
+            <input matInput type="text" [matAutocomplete]="company" [formControl]="formGroup.controls['company']">
+            <mat-autocomplete #company="matAutocomplete" [displayWith]="utilsService.displayName">
+                <mat-option *ngFor="let company of filteredCompanies" [value]="company">
+                    {{company.name}}
+                </mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="formGroup.controls['company'].invalid">
+                O campo empresa é obrigatório
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <mat-label>Mês</mat-label>
+            <input matInput type="text" [matAutocomplete]="month" [formControl]="formGroup.controls['month']">
+            <mat-autocomplete #month="matAutocomplete" [displayWith]="utilsService.displayName">
+                <mat-option *ngFor="let month of filteredMonths" [value]="month">
+                    {{month.name}}
+                </mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="formGroup.controls['month'].invalid">
+                O campo mês é obrigatório
+            </mat-error>
+        </mat-form-field>
+        <mat-card class="upload-card">  
+            <mat-card-content>  
+                <ul class="stretch-line">  
+                    <li *ngFor="let file of files" class="stretch-line">  
+                        <mat-progress-bar [value]="file.progress"></mat-progress-bar>  
+                        <span id="file-label">  
+                            {{file.data.name}}   
+                        </span>  
+                    </li>  
+                </ul>  
+            </mat-card-content>  
+            <mat-card-actions>  
+                <button mat-button color="warn" (click)="onClick()">  
+                    <mat-icon>file_upload</mat-icon>  
+                    Upload  
+                </button>  
+            </mat-card-actions>  
+        </mat-card>
+        <input class="display-none" type="file" #fileUpload id="fileUpload" name="fileUpload" multiple="multiple" accept="application/JSON"/>
+    </div>
+
+    <div *ngIf="loading" class="loading">
+        <mat-spinner class="center"></mat-spinner>
+    </div>
+</div>
