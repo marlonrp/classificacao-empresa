@@ -1,9 +1,9 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-
-import { HomeComponent } from "./home.component";
 import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 
+import { HomeComponent } from "@home/home.component";
 import { SharedModule } from "@shared/shared.module";
+
 
 describe("HomeComponent", () => {
   let component: HomeComponent;

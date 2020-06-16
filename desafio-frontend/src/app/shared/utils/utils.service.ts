@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 import { MonthModel } from "@core/models/month.model";
-import { MonthEnum } from "@core/entities/enums/month.enum";
+import { MonthEnum } from "@core/enums/month.enum";
 
 @Injectable({
   providedIn: "root"

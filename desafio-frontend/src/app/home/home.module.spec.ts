@@ -1,4 +1,4 @@
-import { HomeModule } from "./home.module";
+import { HomeModule } from "@home/home.module";
 
 describe('HomeModule', () => {
   beforeEach(() => {

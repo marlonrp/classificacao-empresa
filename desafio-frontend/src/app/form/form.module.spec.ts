@@ -1,4 +1,4 @@
-import { FormModule } from "./form.module";
+import { FormModule } from "@form//form.module";
 
 describe('FormModule', () => {
   beforeEach(() => {

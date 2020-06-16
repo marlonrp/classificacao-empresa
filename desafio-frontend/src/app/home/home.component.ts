@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     private rateService: RateService
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.defineFormControl();
     this.loadMonths();
   }
@@ -66,10 +66,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private loadMonths() {
     this.filteredMonths = this.months = this.utilsService.getMonths();
-  }
-
-  public displayName(object: any): string {
-    return object && object.name ? object.name : "";
   }
 
   private defineFormControl() {

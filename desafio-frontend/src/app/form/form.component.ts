@@ -46,7 +46,7 @@ export class FormComponent implements OnInit, OnDestroy {
     private snackBar: MatSnackBar
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.createFormGroup();
     this.loadMonths();
     this.loadCompanies();
@@ -145,7 +145,7 @@ export class FormComponent implements OnInit, OnDestroy {
     });
   }
 
-  private uploadFile(file) {
+  private uploadFile(file: FileUploadedModel) {
     file.alreadyUploaded = file.inProgress = true;
     const form = this.formGroup.getRawValue();
     this.companyService

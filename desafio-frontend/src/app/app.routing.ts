@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-import { ErrorPageComponent } from "./error-page/error-page.component";
-import { SharedModule } from "./shared/shared.module";
+import { ErrorPageComponent } from "@error-page/error-page.component";
+import { SharedModule } from "@shared/shared.module";
 
 const routes: Routes = [
   {

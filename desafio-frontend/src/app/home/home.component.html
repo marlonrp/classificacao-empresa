@@ -2,7 +2,7 @@
   <mat-form-field class="form-field center">
     <mat-label>Mês</mat-label>
     <input matInput type="text" [matAutocomplete]="month" [formControl]="monthFormControl">
-    <mat-autocomplete #month="matAutocomplete" [displayWith]="displayName">
+    <mat-autocomplete #month="matAutocomplete" [displayWith]="utilsService.displayName">
       <mat-option *ngFor="let month of filteredMonths" [value]="month">
         {{month.name}}
       </mat-option>

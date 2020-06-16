@@ -1,4 +1,4 @@
-import { CompanyModel } from "./company.model";
+import { CompanyModel } from "@core/models/company.model";
 
 export interface RateModel {
   id: number;
