@@ -51,8 +51,8 @@ public class CompanyController {
 
 	@PostMapping(value = "/{id}/computeFile", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ResponseEntity<Rate> computeFile(@PathVariable Integer id,
-			@RequestParam(value = "month", required = true) Integer month,
-			@RequestParam(value = "file", required = true) MultipartFile file) {
+			@RequestParam() Integer month,
+			@RequestParam() MultipartFile file) {
 
 		if (month < 1 || month > 12) {
 			throw new MissingParameterException("Month must be between 1(one) and 12(twelve)");
