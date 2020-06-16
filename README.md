@@ -23,4 +23,4 @@ To get more about [API](desafio-backend/README.md).
 ### Command Prompt/IDE
 
 Need to install [NodeJS](https://nodejs.org/en/download/);
-Than just execute the (bat file)[https://github.com/marlonrp/desafio-classificacao-empresa/blob/front/desafio-frontend/start-front.bat] for Windows or (sh file)[https://github.com/marlonrp/desafio-classificacao-empresa/blob/front/desafio-frontend/start-front.sh] for Mac or Linux Kernel;
+Than just execute the (.bat)[https://github.com/marlonrp/desafio-classificacao-empresa/blob/front/desafio-frontend/start-front.bat] for Windows or (sh file)[https://github.com/marlonrp/desafio-classificacao-empresa/blob/front/desafio-frontend/start-front.sh] for Mac or Linux Kernel;
