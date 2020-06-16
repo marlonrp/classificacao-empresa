@@ -20,14 +20,6 @@ public class CompanyService {
 		return companyRepository.findAll();
 	}
 
-	public Company save(Company company) {
-		return companyRepository.save(company);
-	}
-
-	public void delete(int id) {
-		companyRepository.deleteById(id);
-	}
-
 	public Optional<Company> findById(Integer id) {
 		Optional<Company> company = companyRepository.findById(id);
 		if (!company.isPresent()) {

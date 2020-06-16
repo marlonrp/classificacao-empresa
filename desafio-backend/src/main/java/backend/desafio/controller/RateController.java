@@ -24,7 +24,7 @@ public class RateController {
 
 	@CrossOrigin("http://localhost:4200")
 	@PostMapping(value = "/{month}")
-	public ResponseEntity<?> getAllByMonth(@PathVariable Integer month,
+	public ResponseEntity<Page<Rate>> getAllByMonth(@PathVariable Integer month,
 			@RequestParam(value = "page", required = false, defaultValue = "0") int page,
 			@RequestParam(value = "size", required = false, defaultValue = "10") int size) {
 		Page<Rate> content = rateService.getAllByMonth(month, page, size);
