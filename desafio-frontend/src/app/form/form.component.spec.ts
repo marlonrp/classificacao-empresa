@@ -11,10 +11,7 @@ describe("FormComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [FormComponent],
-      imports: [
-        NoopAnimationsModule,
-        SharedModule
-      ]
+      imports: [NoopAnimationsModule, SharedModule]
     }).compileComponents();
   }));
 

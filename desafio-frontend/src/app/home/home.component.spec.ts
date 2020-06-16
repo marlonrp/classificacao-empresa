@@ -4,7 +4,6 @@ import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 import { HomeComponent } from "@home/home.component";
 import { SharedModule } from "@shared/shared.module";
 
-
 describe("HomeComponent", () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
@@ -12,10 +11,7 @@ describe("HomeComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [HomeComponent],
-      imports: [
-        NoopAnimationsModule,
-        SharedModule
-      ]
+      imports: [NoopAnimationsModule, SharedModule]
     }).compileComponents();
   }));
 

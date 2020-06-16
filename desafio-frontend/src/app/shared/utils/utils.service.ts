@@ -20,10 +20,9 @@ export class UtilsService {
 
   public getMonths(): MonthModel[] {
     let index = 1;
-    return Object.keys(MonthEnum)
-      .map(key => ({
-          name: MonthEnum[key],
-          value: index++
-      }));
+    return Object.keys(MonthEnum).map(key => ({
+      name: MonthEnum[key],
+      value: index++
+    }));
   }
 }

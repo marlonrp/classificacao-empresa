@@ -1,11 +1,11 @@
 import { FormModule } from "@form//form.module";
 
-describe('FormModule', () => {
+describe("FormModule", () => {
   beforeEach(() => {
     return new FormModule();
   });
 
-  it('should create an instance', () => {
+  it("should create an instance", () => {
     expect(FormModule).toBeTruthy();
   });
 });

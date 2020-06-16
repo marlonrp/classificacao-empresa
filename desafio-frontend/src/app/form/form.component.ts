@@ -88,29 +88,25 @@ export class FormComponent implements OnInit, OnDestroy {
       ]
     });
 
-    this.formGroup.get("company").valueChanges.subscribe(
-      (searchValue: any) => {
-        if (typeof searchValue === "string") {
-          this.filteredCompanies = this.utilsService.filter(
-            searchValue,
-            this.companies
-          );
-          this.formGroup.get("company").setErrors({});
-        }
+    this.formGroup.get("company").valueChanges.subscribe((searchValue: any) => {
+      if (typeof searchValue === "string") {
+        this.filteredCompanies = this.utilsService.filter(
+          searchValue,
+          this.companies
+        );
+        this.formGroup.get("company").setErrors({});
       }
-    );
+    });
 
-    this.formGroup.get("month").valueChanges.subscribe(
-      (searchValue: any) => {
-        if (typeof searchValue === "string") {
-          this.filteredMonths = this.utilsService.filter(
-            searchValue,
-            this.months
-          );
-          this.formGroup.get("month").setErrors({});
-        }
+    this.formGroup.get("month").valueChanges.subscribe((searchValue: any) => {
+      if (typeof searchValue === "string") {
+        this.filteredMonths = this.utilsService.filter(
+          searchValue,
+          this.months
+        );
+        this.formGroup.get("month").setErrors({});
       }
-    );
+    });
 
     this.formGroup.valueChanges.subscribe(() => {
       if (this.files.length) {
