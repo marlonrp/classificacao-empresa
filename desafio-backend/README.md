@@ -55,3 +55,38 @@ This project need Java version 11.
         "debits":1
     }
 
+### Rate service
+
+    URL: http://localhost:8090/rateByMonth/1
+    Method allowed: POST
+    Body:
+    FormData {
+        "page": 0,
+        "size": 10
+    }
+    Response:
+    {
+        "content": [
+            {
+                "id": 1,
+                "month": 1,
+                "score": 51,
+                "company": {
+                    "id": 1,
+                    "name": "Company 1"
+                }
+            },
+            {
+                "id": 2,
+                "month": 1,
+                "score": 50,
+                "company": {
+                    "id": 2,
+                    "name": "Company 2"
+                }
+            }
+        ],
+        "totalElements": 2,
+        "totalPages": 2,
+        "number": 0
+    }
