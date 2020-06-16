@@ -8,7 +8,7 @@ Need Maven installed to use the command `mvn clean install`.
 
 Need Java 11 in OS environment variables.
 
-Than just execute the [bat file](https://github.com/marlonrp/desafio-classificacao-empresa/blob/front/desafio-backend/start-back.bat) for Windows or [sh file](https://github.com/marlonrp/desafio-classificacao-empresa/blob/front/desafio-backend/start-back.sh) for Mac or Linux Kernel.
+Than just execute the [bat file](desafio-backend/start-back.bat) for Windows or [sh file](desafio-backend/start-back.sh) for Mac or Linux Kernel.
 
 ### IDE
 
@@ -30,4 +30,4 @@ To get more about [API](desafio-backend/README.md).
 
 Need to install [NodeJS](https://nodejs.org/en/download/).
 
-Than just execute the [bat file](https://github.com/marlonrp/desafio-classificacao-empresa/blob/front/desafio-frontend/start-front.bat) for Windows or [sh file](https://github.com/marlonrp/desafio-classificacao-empresa/blob/front/desafio-frontend/start-front.sh) for Mac or Linux Kernel.
+Than just execute the [bat file](desafio-frontend/start-front.bat) for Windows or [sh file](desafio-frontend/start-front.sh) for Mac or Linux Kernel.
