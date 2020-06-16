@@ -78,7 +78,14 @@ public class CompanyController {
 		}
 
 		ComputeFile computeFile = new ComputeFile(map.get("invoices"), map.get("debits"));
-		Double newScore = (double) rate.getScore();
+
+		rate.setScore(calculeNewScore((double) rate.getScore(), computeFile));
+		rate = rateService.save(rate);
+		return ResponseEntity.ok().body(rate);
+	}
+	
+	private Integer calculeNewScore(Double score, ComputeFile computeFile) {
+		Double newScore = score;
 
 		for (int i = 1; i <= computeFile.getInvoices(); i++) {
 			newScore = newScore + Math.round(((newScore * 0.02) * 100) / 100);
@@ -96,9 +103,6 @@ public class CompanyController {
 				break;
 			}
 		}
-
-		rate.setScore(newScore.intValue());
-		rate = rateService.save(rate);
-		return ResponseEntity.ok().body(rate);
+		return newScore.intValue();
 	}
 }
