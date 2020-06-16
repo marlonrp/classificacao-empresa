@@ -7,5 +7,4 @@ import backend.desafio.models.Company;
 
 @Repository
 public interface CompanyRepository extends JpaRepository<Company, Integer> {
-	
 }
