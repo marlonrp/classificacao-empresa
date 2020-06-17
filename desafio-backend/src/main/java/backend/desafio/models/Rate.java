@@ -20,6 +20,8 @@ import lombok.experimental.Tolerate;
 @Entity
 @Table(name = "rate")
 public class Rate {
+	
+	public Rate() {}
 
 	@Tolerate
 	public Rate(Integer month, Integer score, Company company) {

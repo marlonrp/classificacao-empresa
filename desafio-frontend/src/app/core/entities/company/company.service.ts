@@ -17,18 +17,4 @@ export class CompanyService {
   public getCompanies(): Observable<CompanyModel[]> {
     return this.http.get<CompanyModel[]>(this.companyEndPoint);
   }
-
-  public computeFile(
-    id: number,
-    month: number,
-    file: File
-  ): Observable<RateModel> {
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("month", month.toString());
-    return this.http.post<RateModel>(
-      `${this.companyEndPoint}/${id}/computeFile`,
-      formData
-    );
-  }
 }

@@ -10,7 +10,7 @@ import { PageModel } from "@core/models/page.model";
   providedIn: "root"
 })
 export class RateService {
-  private rateByMonthEndPoint = `${environment.urlBackend}/rateByMonth`;
+  private rate = `${environment.urlBackend}/rate`;
 
   constructor(protected http: HttpClient) {}
 
@@ -23,7 +23,22 @@ export class RateService {
     formData.append("page", page.toString());
     formData.append("size", size.toString());
     return this.http.post<PageModel<RateModel>>(
-      `${this.rateByMonthEndPoint}/${month}`,
+      `${this.rate}/${month}`,
+      formData
+    );
+  }
+
+  public computeFile(
+    companyId: number,
+    month: number,
+    file: File
+  ): Observable<RateModel> {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("companyId", companyId.toString());
+    formData.append("month", month.toString());
+    return this.http.post<RateModel>(
+      `${this.rate}/computeFile`,
       formData
     );
   }

@@ -17,6 +17,7 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 
 import { UtilsService } from "@shared/utils/utils.service";
 import { CompanyService } from "@core/entities/company/company.service";
+import { RateService } from "@core/entities/rate/rate.service";
 import { CompanyModel } from "@core/models/company.model";
 import { MonthModel } from "@core/models/month.model";
 import { FileUploadedModel } from "@core/models/file-uploaded.model";
@@ -42,6 +43,7 @@ export class FormComponent implements OnInit, OnDestroy {
   constructor(
     public utilsService: UtilsService,
     private companyService: CompanyService,
+    private rateService: RateService,
     private formBuilder: FormBuilder,
     private snackBar: MatSnackBar
   ) {}
@@ -144,7 +146,7 @@ export class FormComponent implements OnInit, OnDestroy {
   private uploadFile(file: FileUploadedModel) {
     file.alreadyUploaded = file.inProgress = true;
     const form = this.formGroup.getRawValue();
-    this.companyService
+    this.rateService
       .computeFile(form.company.id, form.month.value, file.data)
       .pipe(
         takeUntil(this.ngUnsubscribe),

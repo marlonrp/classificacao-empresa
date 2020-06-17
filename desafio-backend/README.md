@@ -24,7 +24,7 @@ This project need Java version 11.
         }
     ]
 
-    URL: http://localhost:8090/company/1
+    URL: http://localhost:8090/company/{companyId}
     Method allowed: GET
     Response:
     {
@@ -32,32 +32,9 @@ This project need Java version 11.
         "name": "Company 1"
     }
 
-    URL: http://localhost:8090/company/1/computeFile
-    Method allowed: POST
-    Body:
-    FormData {
-        "file": file.json,
-        "month": 1
-    }
-    Response:
-    {
-        "id": 1,
-        "month": 1,
-        "score": 51,
-        "company": {
-            "id": 1,
-            "name": "Company 1"
-        }
-    }
-    JSON File: 
-    {
-        "invoices":3,
-        "debits":1
-    }
-
 ### Rate service
 
-    URL: http://localhost:8090/rateByMonth/1
+    URL: http://localhost:8090/rate/{monthValue}
     Method allowed: POST
     Body:
     FormData {
@@ -87,6 +64,42 @@ This project need Java version 11.
             }
         ],
         "totalElements": 2,
-        "totalPages": 2,
+        "totalPages": 1,
         "number": 0
+    }
+    Month options: 
+    {
+        {
+            "name": "JANUARY",
+            value: 1
+        },
+        ...
+        {
+            "name": "DECEMBER",
+            value: 12
+        }
+    }
+    
+    URL: http://localhost:8090/rate/computeFile
+    Method allowed: POST
+    Body:
+    FormData {
+        "file": file.json,
+        "month": 1,
+        "companyId": 1
+    }
+    Response:
+    {
+        "id": 1,
+        "month": 1,
+        "score": 51,
+        "company": {
+            "id": 1,
+            "name": "Company 1"
+        }
+    }
+    JSON File: 
+    {
+        "invoices":3,
+        "debits":1
     }

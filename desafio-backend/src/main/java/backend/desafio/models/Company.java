@@ -28,4 +28,12 @@ public class Company {
 	@Column(name = "name")
 	@NotBlank(message = "Name is mandatory")
 	private String name;
+	
+	public String getName() {
+		return name;
+	}
+	
+	public Integer getId() {
+		return id;
+	}
 }
