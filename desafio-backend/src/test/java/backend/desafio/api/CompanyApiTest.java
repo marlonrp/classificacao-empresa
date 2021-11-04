@@ -89,6 +89,69 @@ public class CompanyApiTest {
 			.body("msg", equalTo(COMPANY_ID_999_NOT_EXIST));
 	}
 	
+	@Test
+	public void test04() {
+		RestAssured.given()
+			.pathParam("id", NOT_EXISTS_ID_COMPANY)
+			.accept(ContentType.JSON)
+		.when()
+			.get("/{id}")
+		.then()
+			.statusCode(HttpStatus.NOT_FOUND.value())
+			.body("status", equalTo(404))
+			.body("msg", containsString("COMPANY_ID_NOT_EXIST"));
+	}
+	
+	@Test
+	public void test05() {
+		RestAssured.given()
+			.pathParam("id", 1)
+			.accept(ContentType.JSON)
+		.when()
+			.get("/{id}")
+		.then()
+			.statusCode(HttpStatus.OK.value())
+			.body("status", equalTo(200))
+			.body("name", hasItems("Google"));
+	}
+	
+	@Test
+	public void test06() {
+		RestAssured.given()
+			.accept(ContentType.JSON)
+		.when()
+			.get()
+		.then()
+			.statusCode(HttpStatus.OK.value())
+			.body("size", lessThan(11)));
+	}
+	
+	@Test
+	public void test07() {
+		RestAssured.given()
+			.pathParam("id", 1)
+			.accept(ContentType.JSON)
+		.when()
+			.get("/{id}")
+		.then()
+			.statusCode(HttpStatus.OK.value())
+			.body("status", equalTo(200))
+			.body("score", greaterThan(70));
+	}
+	
+	@Test
+	public void test08() {
+		RestAssured.given()
+			.pathParam("id", 1)
+			.accept(ContentType.JSON)
+		.when()
+			.get("/{id}")
+			.as(Company.class);
+		.then()
+			.statusCode(HttpStatus.OK.value())
+			.body(assertFalse(Company.isEmpty());
+	}
+	
 	private void prepareData() {
 		optionalFirstComapany = companyService.findById(FIRST_ID_COMPANY);
 		firstComapany = optionalFirstComapany.get();
